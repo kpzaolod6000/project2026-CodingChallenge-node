@@ -21,7 +21,6 @@ export const authenticateM2M = (
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    // Asignamos el payload decodificado a la request
     (req as any).user = decoded;
     return next();
   } catch (err) {

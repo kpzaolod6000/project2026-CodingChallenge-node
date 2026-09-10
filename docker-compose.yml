@@ -9,6 +9,9 @@ services:
       - JWT_SECRET=${JWT_SECRET}
     ports:
       - "${PORT:-4000}:${PORT:-4000}"
+    volumes:
+      - .:/app
+      - /app/node_modules
     networks:
       - api-net
 

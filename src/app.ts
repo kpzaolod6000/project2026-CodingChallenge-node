@@ -3,10 +3,10 @@ import routes from './routes';
 
 const app: Application = express();
 
-// Middlewares
+// middlewares
 app.use(express.json({ limit: '5mb' }));
 
-// Rutas
+// paths
 app.use(routes);
 
 export default app;
