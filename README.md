@@ -37,7 +37,7 @@ node-api/
 ├── .gitignore            # Archivos excluidos de Git
 ├── Dockerfile            # Configuración Docker multi-etapa (base, dev, builder, prod)
 ├── docker-compose.yml    # Orquestación de servicios en Docker
-├── jest.config.ts        # Configuración del ejecutor de pruebas Jest
+├── jest.config.js         # Configuración del ejecutor de pruebas Jest
 ├── package.json          # Dependencias y scripts de la aplicación
 ├── tsconfig.json         # Configuración del compilador TypeScript
 └── src/
@@ -55,7 +55,8 @@ node-api/
     ├── services/         # Lógica de negocio (procesamiento de matrices)
     │   └── matrix.service.ts
     ├── tests/            # Pruebas unitarias
-    │   └── matrix.service.test.ts
+    │   ├── matrix.service.test.ts
+    │   └── stats.controller.test.ts
     └── types/            # Definiciones de tipos e interfaces TypeScript
         └── matrix.ts
 ```
@@ -158,7 +159,8 @@ Verifica que el servicio esté operativo.
   ```json
   {
     "status": "ok",
-    "uptime": 12.34
+    "service": "node-api",
+    "timestamp": "2026-09-10T20:12:00.000Z"
   }
   ```
 
@@ -216,7 +218,7 @@ Calcula métricas estadísticas combinadas para las matrices $Q$ y $R$.
     "error": "Acceso no autorizado: se requiere cabecera Authorization: Bearer <token>"
   }
   ```
-- **403 Forbidden**: Token JWT inváldo o expirado.
+- **403 Forbidden**: Token JWT inválido o expirado.
   ```json
   {
     "status": "error",
