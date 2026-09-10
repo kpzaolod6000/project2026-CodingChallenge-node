@@ -1,0 +1,17 @@
+services:
+  node-api:
+    build:
+      context: .
+      target: ${NODE_BUILD_TARGET:-prod}
+    container_name: node-api
+    environment:
+      - PORT=${PORT:-4000}
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - "${PORT:-4000}:${PORT:-4000}"
+    networks:
+      - api-net
+
+networks:
+  api-net:
+    external: true
